@@ -331,13 +331,17 @@ int main(int argc, char *argv[])
     Canvas1 brezenhem(100,100);
     Canvas1 int_brezenhem(100,100);
     // cda.CDA({40, 40},{50,50},color);
-    std::vector<Point> polyline;
-    polyline.push_back({10, 20});
-    polyline.push_back({30, 20});
-    polyline.push_back({10, 40});
-    polyline.push_back({30, 40});
+    Point polyline[4];
+    for (int i = 0; i < 4; i++) {
+        cout << "Point " << i + 1 << ": ";
+        cin >> polyline[i].x >> polyline[i].y;
+    }
+    // polyline.push_back({10, 20});
+    // polyline.push_back({30, 20});
+    // polyline.push_back({10, 40});
+    // polyline.push_back({30, 40});
 
-    for(int i = 0; i<polyline.size()-1; i++){
+    for(int i = 0; i<3; i++){
         cda.CDA(polyline[i], polyline[i+1], color);
         brezenhem.Brezenhem(polyline[i], polyline[i+1], color);
         int_brezenhem.BrezenhemC(polyline[i], polyline[i+1], color);
